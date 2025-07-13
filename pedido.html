@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        
+    <style>
+    body {
+    margin: 0;
+    padding: 0;
+    color: #ff66b2;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #f8f8f8;
+    }
+
+.painel {
+  position: relative;            /* para o botão “não” absoluto dentro dele */
+  overflow: hidden;              /* evita scroll interno e que os botões escapem */
+  width: 90vw;                   /* ocupa 90% da largura da viewport */
+  max-width: 500px;              /* limite em desktop */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.painel img {
+  max-width: 100%;
+  height: auto;
+}
+    
+h1 {
+  font-size: 1.2rem;             /* escala melhor no mobile */
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+    
+    #sim{
+        width: 120px;
+        height: 60px;
+        border-radius: 10px;
+      background-color: #ff66b2;
+      color: #fff;
+        font-size: 25px;
+        margin-left: -90px;
+        
+        
+    }
+    #nao{
+        position: absolute;
+        width: 120px;
+        height: 60px;
+        border-radius: 10px;
+      background-color: #333;
+       color: #fff;
+        font-size: 25px;
+        margin-left: 10px;
+         position: absolute;        
+    }
+
+
+    </style>
+
+</head>
+<body>
+
+    <div class="painel">
+        <h1>Quer namorar comigo?</h1>
+        <img src="https://gifman.net/wp-content/uploads/2019/06/ursinhos-fofos-mordidas.gif">
+        <h2>Aceita ser meu Player 2?</h2>
+
+
+    <a href="https://youtu.be/nyuo9-OjNNg?t=42"><button id="sim">Sim ❤️</button></a>
+    <button onmouseover= "fuja()" id="nao">Não 💔</button>
+
+
+</div>
+<script>
+
+    // function fuja(){
+    //     var botaoNao = document.getElementById("nao")
+        
+    //     var larguraJanela = window.innerWidth;
+    //     var alturaJanela = window.innerHeight;
+
+    //     var maxX = larguraJanela - botaoNao.offsetWidth;
+    //     var maxY = alturaJanela - botaoNao.offsetHeight;
+
+    //     var aleatorioX = Math.floor(Math.random() * maxX);
+    //     var aleatorioY = Math.floor(Math.random() * maxY);
+
+    //     botaoNao.style.left = aleatorioX + "px";
+    //     botaoNao.style.top = aleatorioY + "px";
+    // }
+
+    const botaoNao = document.getElementById("nao");
+  const painel   = document.querySelector(".painel");
+
+botaoNao.addEventListener("mouseover", fuja);
+botaoNao.addEventListener("touchstart", fuja);
+
+  function fuja() {
+    // dimensões do painel
+    const rectPainel = painel.getBoundingClientRect();
+
+    // dimensões do botão
+    const larguraBotao = botaoNao.offsetWidth;
+    const alturaBotao  = botaoNao.offsetHeight;
+
+    // calcula limites de posição (dentro do painel)
+    const maxX = rectPainel.width  - larguraBotao;
+    const maxY = rectPainel.height - alturaBotao;
+
+    // posições aleatórias
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    // aplica posicao (relativa ao container)
+    botaoNao.style.left = `${x}px`;
+    botaoNao.style.top  = `${y}px`;
+  }
+</script>
+
+</body>
+</html>
